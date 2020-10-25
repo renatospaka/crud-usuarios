@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  api:
+    container_name: users-crud_api
+    build: .
+    ports:
+      - 3000:3000
+    volumes: 
+      - .:/home/api
+      - /home/api/node_modules
+
+  database:
+    container_name: users-crud_db
+    image: postgres:13
+    environment:
+      POSTGRES_DB: usersCRUD
+      POSTGRES_USER: renatospaka
+      POSTGRES_PASSWORD: R3nAt0sp@k@
+    ports:
+    - 5432:5432
